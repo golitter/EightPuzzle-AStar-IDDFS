@@ -10,7 +10,7 @@ void test_Ev() {
     std::cout<<Direction::d4::get_x(3)<<std::endl;
 }
 void test_Eight() {
-    IDDFS(1);
+    IDDFS(9);
 }
 int main(int, char**){
     std::cout << "Hello, from EightPuzzle-AStar-IDDFS!\n";
