@@ -86,7 +86,6 @@ void IDDFS(int zero_pos) {
     }
     std::cout<<mhd<<std::endl;
     max_depth = 0;
-    //dkjf
     // #@NOTICE: 每次都改动 ******************************************************************************************************
     while(++max_depth) {
         vis = std::map<LL,bool>();
