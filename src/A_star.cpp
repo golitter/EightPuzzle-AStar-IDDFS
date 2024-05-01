@@ -87,6 +87,7 @@ void IDDFS(int zero_pos) {
     std::cout<<mhd<<std::endl;
     max_depth = 0;
     // #@NOTICE: 每次都改动 ******************************************************************************************************
+    // @NOTICE: 无解情况考虑： 8！ https://www.luogu.com.cn/problem/solution/P1379
     while(++max_depth) {
         vis = std::map<LL,bool>();
         if(dfs(zero_pos, 0)) break;
