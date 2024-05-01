@@ -18,7 +18,8 @@ std::map<LL,bool> vis;
 int max_depth = 0x3f3f3f3f;
 
 // 移动数组
-std::vector<int> arr({1,2,3,0,4,6,7,5,8});
+// std::vector<int> arr({1,2,3,0,4,6,7,5,8});
+std::vector<int> arr({0, 1, 2, 3, 4, 5, 6, 7, 8});
 // 目标状态数组
 std::vector<int> target({0, 1, 2, 3, 4, 5, 6, 7, 8});
 
@@ -73,13 +74,25 @@ bool dfs(int zero_pos, int cur_depth) {
         std::swap(arr[zero_pos], arr[new_pos]);
 
     }
+    return false;
 }
 
 void IDDFS(int zero_pos) {
+
+    int mhd = EvaluationFunctions::mhd(arr);
+    if(mhd == 0) { // 对0特判
+        std::cout<<0<<std::endl;
+        return ;
+    }
+    std::cout<<mhd<<std::endl;
     max_depth = 0;
+    //dkjf
+    // #@NOTICE: 每次都改动 ******************************************************************************************************
     while(++max_depth) {
         vis = std::map<LL,bool>();
         if(dfs(zero_pos, 0)) break;
     } 
     std::cout<<max_depth<<std::endl;
 }
+
+// void dispose()
