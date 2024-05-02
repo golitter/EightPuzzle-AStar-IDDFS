@@ -78,7 +78,7 @@ void input_target_stat() {
     target_stat.clear();
     // 撤销前一个getline残留的回车键
     std::cin.ignore();
-    
+
     std::cout<<"是否为默认状态：[12345678-] (i)"<<std::endl;
     std::string op; getline(std::cin, op);
     if(op.find("i") != std::string::npos) {
@@ -115,7 +115,7 @@ void input_target_stat() {
 // 主界面
 void display_menu() {
     input_init_stat();
-    input_target_stat();
+    // input_target_stat();
 }
 
 }
