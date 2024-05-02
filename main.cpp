@@ -11,12 +11,14 @@ void test_Ev() {
     std::cout<<Direction::d4::get_x(3)<<std::endl;
 }
 void test_Eight() {
-    IDDFS(9);
+    // IDDFS(3, {1,2,3, 0, 4, 6, 7,5, 8});
+    // IDDFS(9, {1,2,3,4,5,6,7,8,0});
+    // IDDFS(2, {1,2,0,3,4,5,6,7,8});
 }
 int main(int, char**){
     std::cout << "Hello, from EightPuzzle-AStar-IDDFS!\n";
     // test_Cantor();
     // test_Ev();
-    EightPuzzleInput::start();
-    // test_Eight();
+    // EightPuzzleInput::start();
+    test_Eight();
 }

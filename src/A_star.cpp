@@ -21,7 +21,7 @@ int max_depth = 0x3f3f3f3f;
 // std::vector<int> arr({1,2,3,0,4,6,7,5,8});
 std::vector<int> arr({1, 2, 3, 4, 5, 6, 7, 8, 0});
 // 目标状态数组
-std::vector<int> target({0, 1, 2, 3, 4, 5, 6, 7, 8});
+std::vector<int> target({0,1, 2, 3, 4, 5, 6, 7, 8});
 
 namespace EvaluationFunctions {
 void d1_2_d2(int pos) {
@@ -30,7 +30,9 @@ void d1_2_d2(int pos) {
 }
 int mhd_single(int target_pos, int current_pos) {
     // d1_2_d2(target_pos); d1_2_d2(current_pos);
-    return std::abs(target_pos / 3 - (current_pos - 1) / 3) + std::abs(target_pos % 3 - (current_pos - 1) % 3);
+    // return std::abs((target_pos - 1) / 3 - (current_pos - 1) / 3) + std::abs((target_pos - 1) % 3 - (current_pos - 1) % 3);
+        return std::abs((target_pos ) / 3 - (current_pos - 1) / 3) + std::abs((target_pos ) % 3 - (current_pos - 1) % 3);
+
 }
 
 int mhd(std::vector<int> vec) {
@@ -77,8 +79,8 @@ bool dfs(int zero_pos, int cur_depth) {
     return false;
 }
 
-void IDDFS(int zero_pos) {
-
+void IDDFS(int zero_pos, std::vector<int> init_stat) {
+    arr = init_stat;
     int mhd = EvaluationFunctions::mhd(arr);
     if(mhd == 0) { // 对0特判
         std::cout<<0<<std::endl;
@@ -86,13 +88,17 @@ void IDDFS(int zero_pos) {
     }
     std::cout<<mhd<<std::endl;
     max_depth = 0;
-    // #@NOTICE: 每次都改动 ******************************************************************************************************
-    // @NOTICE: 无解情况考虑： 8！ https://www.luogu.com.cn/problem/solution/P1379
-    while(++max_depth) {
+    // 无解情况考虑： 8！ https://www.luogu.com.cn/problem/solution/P1379
+    while(++max_depth <= 50000) {
         vis = std::map<LL,bool>();
+        arr = init_stat;
         if(dfs(zero_pos, 0)) break;
     } 
+    if(max_depth >= 50000) {
+        std::cout<<"无解"<<std::endl;
+    }
     std::cout<<max_depth<<std::endl;
+    std::cout<<"结束"<<std::endl;
 }
 
 // void dispose()

@@ -45,7 +45,7 @@ int mhd(std::vector<int> vec);
 }
 
 /**
-* @zero_pos: 0的位置
+* @zero_pos: 0的位置(下标从0开始计数)
 * @cur_depth: 当前递归深度
 */
 bool dfs(int zero_pos, int cur_depth);
@@ -54,4 +54,4 @@ bool dfs(int zero_pos, int cur_depth);
 /**
 * @zero_pos:0的位置
 */
-void IDDFS(int zero_pos);
+void IDDFS(int zero_pos, std::vector<int> init_stat);
