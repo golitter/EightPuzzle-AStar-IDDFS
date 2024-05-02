@@ -25,10 +25,11 @@ GPU: 2e97:00:00.0 Microsoft Corporation Device 008e
 Memory: 961MiB / 11045MiB 
 ```
 
-```
+```shell
 vscode-server 1.88.1 e170252f762678dec6ca2cc69aba1570769a5d39 x64
 git version 2.34.1
 g++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+Ubuntu clangd version 14.0.0-1ubuntu1.1
 cmake version 3.22.1
 ```
 
