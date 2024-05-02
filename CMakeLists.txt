@@ -5,7 +5,7 @@ include(CTest)
 enable_testing()
 include_directories(include)
 
-add_executable(EightPuzzle-AStar-IDDFS main.cpp src/A_star.cpp src/cantor_expansion.cpp)
+add_executable(EightPuzzle-AStar-IDDFS main.cpp src/A_star.cpp src/cantor_expansion.cpp src/input_processor.cpp)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

@@ -19,7 +19,7 @@ int max_depth = 0x3f3f3f3f;
 
 // 移动数组
 // std::vector<int> arr({1,2,3,0,4,6,7,5,8});
-std::vector<int> arr({0, 1, 2, 3, 4, 5, 6, 7, 8});
+std::vector<int> arr({1, 2, 3, 4, 5, 6, 7, 8, 0});
 // 目标状态数组
 std::vector<int> target({0, 1, 2, 3, 4, 5, 6, 7, 8});
 
@@ -86,8 +86,8 @@ void IDDFS(int zero_pos) {
     }
     std::cout<<mhd<<std::endl;
     max_depth = 0;
-    //dkjf
     // #@NOTICE: 每次都改动 ******************************************************************************************************
+    // @NOTICE: 无解情况考虑： 8！ https://www.luogu.com.cn/problem/solution/P1379
     while(++max_depth) {
         vis = std::map<LL,bool>();
         if(dfs(zero_pos, 0)) break;
