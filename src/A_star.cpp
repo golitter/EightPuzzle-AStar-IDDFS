@@ -100,6 +100,7 @@ void IDDFS(int zero_pos, std::vector<int> init_stat) {
     std::cout<<mhd<<std::endl;
     max_depth = 0;
     // 无解情况考虑： 8！ https://www.luogu.com.cn/problem/solution/P1379
+    // 状态只有 8!，8! = 40320，因此当 max_depth 大于40320时无解，退出迭代加深
     while(++max_depth <= 50000) {
         vis = std::map<LL,bool>();
         arr = init_stat;
