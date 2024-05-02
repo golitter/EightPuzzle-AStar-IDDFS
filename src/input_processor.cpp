@@ -74,42 +74,42 @@ void input_init_stat() {
     std::cout<<std::endl;
 }
 
-void input_target_stat() {
-    target_stat.clear();
-    // 撤销前一个getline残留的回车键
-    std::cin.ignore();
+// void input_target_stat() {
+//     target_stat.clear();
+//     // 撤销前一个getline残留的回车键
+//     std::cin.ignore();
 
-    std::cout<<"是否为默认状态：[12345678-] (i)"<<std::endl;
-    std::string op; getline(std::cin, op);
-    if(op.find("i") != std::string::npos) {
-        for(int i = 1; i < 9; ++i) target_stat.push_back(i);
-        target_stat.push_back(0);
-    } else {
-        std::cout<<"请输入初始八数码"<<std::endl;
-        int x;
-        while(target_stat.size() < 9) {
-            std::cin>>x;
-            if(x < 0 || x >= 9) {
-                std::cout<<"输入值 [ "<<x<<" ] 不合法，重新输 or 直接结束 (n/q)"<<std::endl;
-                getline(std::cin, op);
-                if(op.find("n") != std::string::npos) {
-                    continue;
-                } else {
-                    return ;
-                }
-            }
-            target_stat.push_back(x);
-        }
-        if( !check_init_stat(target_stat)) {
-            std::cout<<"目标状态不合法："<<std::endl;
-            printBoard(init_stat);
-            return ;
-        }
-    }
-    std::cout<<"目标状态为："<<std::endl;
-    printBoard(init_stat);
-    std::cout<<std::endl;
-}
+//     std::cout<<"是否为默认状态：[12345678-] (i)"<<std::endl;
+//     std::string op; getline(std::cin, op);
+//     if(op.find("i") != std::string::npos) {
+//         for(int i = 1; i < 9; ++i) target_stat.push_back(i);
+//         target_stat.push_back(0);
+//     } else {
+//         std::cout<<"请输入初始八数码"<<std::endl;
+//         int x;
+//         while(target_stat.size() < 9) {
+//             std::cin>>x;
+//             if(x < 0 || x >= 9) {
+//                 std::cout<<"输入值 [ "<<x<<" ] 不合法，重新输 or 直接结束 (n/q)"<<std::endl;
+//                 getline(std::cin, op);
+//                 if(op.find("n") != std::string::npos) {
+//                     continue;
+//                 } else {
+//                     return ;
+//                 }
+//             }
+//             target_stat.push_back(x);
+//         }
+//         if( !check_init_stat(target_stat)) {
+//             std::cout<<"目标状态不合法："<<std::endl;
+//             printBoard(init_stat);
+//             return ;
+//         }
+//     }
+//     std::cout<<"目标状态为："<<std::endl;
+//     printBoard(init_stat);
+//     std::cout<<std::endl;
+// }
 
 
 // 主界面

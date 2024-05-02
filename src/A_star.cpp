@@ -21,7 +21,7 @@ int max_depth = 0x3f3f3f3f;
 // std::vector<int> arr({1,2,3,0,4,6,7,5,8});
 std::vector<int> arr({1, 2, 3, 4, 5, 6, 7, 8, 0});
 // 目标状态数组
-std::vector<int> target({0,1, 2, 3, 4, 5, 6, 7, 8});
+// std::vector<int> target({0,1, 2, 3, 4, 5, 6, 7, 8}); // 如需更改默认target，评估函数需要更改
 
 namespace EvaluationFunctions {
 void d1_2_d2(int pos) {
@@ -30,7 +30,6 @@ void d1_2_d2(int pos) {
 }
 int mhd_single(int target_pos, int current_pos) {
     // d1_2_d2(target_pos); d1_2_d2(current_pos);
-    // return std::abs((target_pos - 1) / 3 - (current_pos - 1) / 3) + std::abs((target_pos - 1) % 3 - (current_pos - 1) % 3);
         return std::abs((target_pos ) / 3 - (current_pos - 1) / 3) + std::abs((target_pos ) % 3 - (current_pos - 1) % 3);
 
 }
