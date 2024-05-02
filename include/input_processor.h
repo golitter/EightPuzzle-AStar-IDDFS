@@ -19,6 +19,6 @@ void printBoard(std::vector<int> vec);
 // 输入初始状态
 void input_init_stat();
 // 输入目标状态
-void input_target_stat();
+// void input_target_stat();
 
 }
