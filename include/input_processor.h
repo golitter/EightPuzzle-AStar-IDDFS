@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <string>
 #include <vector>
@@ -13,7 +14,7 @@ void display_menu();
 bool check_init_stat(std::vector<int> vec);
 
 // 以棋盘格式打印八数码
-void printBoard();
+void printBoard(std::vector<int> vec);
 
 // 输入初始状态
 void input_init_stat();

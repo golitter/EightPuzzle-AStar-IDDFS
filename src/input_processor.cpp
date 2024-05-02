@@ -35,10 +35,10 @@ bool check_init_stat(std::vector<int> vec) {
     return true;
 }
 
-void printBoard() {
+void printBoard(std::vector<int> vec) {
     int cnt = 0;
     for(int i = 0; i < 9; ++i) {
-        std::cout<<init_stat[i]<<" ";
+        std::cout<<vec[i]<<" ";
         cnt++;
         if(cnt == 3) {
             cnt = 0;
@@ -66,11 +66,11 @@ void input_init_stat() {
     }
     if( !check_init_stat(init_stat)) {
         std::cout<<"初始状态不合法："<<std::endl;
-        printBoard();
+        printBoard(init_stat);
         return ;
     }
     std::cout<<"初始状态为："<<std::endl;
-    printBoard();
+    printBoard(init_stat);
     std::cout<<std::endl;
 }
 
@@ -102,12 +102,12 @@ void input_target_stat() {
         }
         if( !check_init_stat(target_stat)) {
             std::cout<<"目标状态不合法："<<std::endl;
-            printBoard();
+            printBoard(init_stat);
             return ;
         }
     }
     std::cout<<"目标状态为："<<std::endl;
-    printBoard();
+    printBoard(init_stat);
     std::cout<<std::endl;
 }
 
