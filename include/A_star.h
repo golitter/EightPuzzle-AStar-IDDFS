@@ -5,10 +5,15 @@
 #include <vector>
 #include <cmath>
 #include <map>
+#include <iomanip>
 /**
 * @NOTICE:
 *   规定数组下标从0开始
 */
+
+
+#define ENABLE_FLOW_INFO 1
+
 typedef long long LL;
 
 namespace Direction {
@@ -47,11 +52,26 @@ int mhd(std::vector<int> vec);
 /**
 * @zero_pos: 0的位置(下标从0开始计数)
 * @cur_depth: 当前递归深度
+* @stp: 当前步数
 */
-bool dfs(int zero_pos, int cur_depth);
+bool dfs(int zero_pos, int cur_depth, int stp);
 
 
 /**
 * @zero_pos:0的位置
 */
 void IDDFS(int zero_pos, std::vector<int> init_stat);
+
+
+/**
+* @vec: 状态矩阵
+*/
+void printBoard(std::vector<int> vec);
+
+/**
+* @now_depth: 当前深度
+* @stp: 移动次数
+* @vec: 状态矩阵
+* 打印所有信息
+*/
+void printAllInfo(int now_depth, int stp,int ev_mhn, std::vector<int> vec);
