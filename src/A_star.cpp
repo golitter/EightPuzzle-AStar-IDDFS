@@ -1,5 +1,6 @@
 #include "../include/A_star.h"
 
+
 namespace Direction {
 namespace d4 { // 四个方向
 std::vector<int> fx({0, 0, -1, 1});
@@ -45,15 +46,24 @@ int mhd(std::vector<int> vec) {
 }
 }
 
-bool dfs(int zero_pos, int cur_depth) {
+bool dfs(int zero_pos, int cur_depth, int stp) {
+
     // 得到当前状态的评估函数
     int mhd = EvaluationFunctions::mhd(arr);
+    #if ENABLE_FLOW_INFO
+    printAllInfo(cur_depth, stp,mhd, arr);
+    #endif
     if(mhd == 0) {
         // 找到目标
         return true;
     }
     // 如果当前深度加上曼哈顿距离已经大于max_depth，直接返回。
-    if(cur_depth + mhd > max_depth) return false;
+    if(cur_depth + mhd > max_depth) {
+        #if ENABLE_FLOW_INFO
+        std::cout<<"当前深度加上曼哈顿距离已经大于max_depth，直接返回\n"<<std::endl;
+        #endif
+        return false;
+    }
 
     // 得到0在矩阵中的坐标 （行row，列col）
     int row = zero_pos / 3, col = zero_pos % 3;
@@ -81,7 +91,7 @@ bool dfs(int zero_pos, int cur_depth) {
         } 
         // 记录状态的映射
         vis[cantor] = true;
-        if(dfs(new_pos, cur_depth + 1)) return 1;
+        if(dfs(new_pos, cur_depth + 1, stp + 1)) return 1;
         // 回溯：坐标回溯 + 状态剔除
         std::swap(arr[zero_pos], arr[new_pos]);
         vis.erase(cantor);
@@ -97,20 +107,46 @@ void IDDFS(int zero_pos, std::vector<int> init_stat) {
         std::cout<<0<<std::endl;
         return ;
     }
-    std::cout<<mhd<<std::endl;
+    // std::cout<<mhd<<std::endl;
     max_depth = 0;
     // 无解情况考虑： 8！ https://www.luogu.com.cn/problem/solution/P1379
     // 状态只有 8!，8! = 40320，因此当 max_depth 大于40320时无解，退出迭代加深
     while(++max_depth <= 50000) {
         vis = std::map<LL,bool>();
         arr = init_stat;
-        if(dfs(zero_pos, 0)) break;
+        if(dfs(zero_pos, 0, 0)) break;
     } 
     if(max_depth >= 50000) {
         std::cout<<"无解"<<std::endl;
     }
-    std::cout<<max_depth<<std::endl;
+    // std::cout<<max_depth<<std::endl;
+    std::cout<<"最大深度(max_depth): "<< std::left<<std::setw(5)<<max_depth<<std::endl;
     std::cout<<"结束"<<std::endl;
 }
 
 // void dispose()
+
+void printBoard(std::vector<int> vec) {
+    int cnt = 0;
+    std::cout<<"[ ";
+    for(int i = 0; i < 9; ++i) {
+        std::cout<<vec[i]<<"  ";
+        cnt++;
+        if(cnt == 3) {
+            cnt = 0;
+            if(i == 8) {
+                std::cout<<"]";
+            } else std::cout<<"  ";
+            std::cout<<std::endl;
+            if(i != 8) std::cout<<"  ";
+        }
+    }
+}
+
+void printAllInfo(int now_depth, int stp,int ev_mhn, std::vector<int> vec) {
+    std::cout<<"当前深度: "<<std::left<<std::setw(5)<<now_depth<<
+    " , 评估函数: "<<
+    std::left<<std::setw(5)<<ev_mhn<<
+    " , 当前步数: "<<std::left<<std::setw(5)<<stp<<std::endl;
+    printBoard(arr);
+}
