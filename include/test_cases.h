@@ -9,5 +9,6 @@
 namespace EP_TEST {
 
 // 测试所有情况
+// 无解情况，难以判定结束
 void test_all_case();
 }

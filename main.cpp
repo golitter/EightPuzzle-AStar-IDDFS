@@ -12,6 +12,7 @@ void test_Ev() {
     std::cout<<Direction::d4::get_x(3)<<std::endl;
 }
 void test_Eight() {
+    
     IDDFS(3, {1,2,3, 0, 4, 6, 7,5, 8});
     // IDDFS(9, {1,2,3,4,5,6,7,8,0});
     // IDDFS(2, {1,2,0,3,4,5,6,7,8});
