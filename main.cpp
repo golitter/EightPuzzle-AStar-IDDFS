@@ -27,5 +27,7 @@ int main(int, char**){
     // EightPuzzleInput::start();
     // test_Eight();
     // test_TEST();
+
+    // 开始
     EightPuzzleInput::start();
 }
