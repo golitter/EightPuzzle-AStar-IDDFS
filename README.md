@@ -208,6 +208,10 @@ void IDDFS(int zero_pos, std::vector<int> init_stat) {
 }
 ```
 
+流程图：
+
+![image-20240512164748911](README.assets/image-20240512164748911.png)
+
 
 
 ## 简单交互
