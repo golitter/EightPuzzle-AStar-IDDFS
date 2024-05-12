@@ -104,7 +104,7 @@ void IDDFS(int zero_pos, std::vector<int> init_stat) {
     arr = init_stat;
     int mhd = EvaluationFunctions::mhd(arr);
     if(mhd == 0) { // 对0特判
-        std::cout<<0<<std::endl;
+        std::cout<<"输入初始状态即为目标状态"<<std::endl;
         return ;
     }
     // std::cout<<mhd<<std::endl;
@@ -122,6 +122,8 @@ void IDDFS(int zero_pos, std::vector<int> init_stat) {
     // std::cout<<max_depth<<std::endl;
     std::cout<<"最大深度(max_depth): "<< std::left<<std::setw(5)<<max_depth<<std::endl;
     std::cout<<"结束"<<std::endl;
+
+    std::cout<<"\n"<<std::endl;
 }
 
 // void dispose()

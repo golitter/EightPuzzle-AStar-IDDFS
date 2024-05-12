@@ -1,7 +1,9 @@
 #pragma once
+#include "A_star.h"
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstdio>
 namespace EightPuzzleInput {
 
 // 开始
