@@ -1,5 +1,5 @@
 #include "../include/input_processor.h"
-#include <cstdio>
+
 
 namespace EightPuzzleInput {
 
@@ -72,6 +72,15 @@ void input_init_stat() {
     std::cout<<"初始状态为："<<std::endl;
     printBoard(init_stat);
     std::cout<<std::endl;
+    std::cout<<"正在处理......"<<std::endl;
+    int pos = 0;
+    for(int i = 0; i < 9; ++i) {
+        if(init_stat[i] == 0) {
+            pos = i;
+            break;
+        }
+    }
+    IDDFS(pos, init_stat);
 }
 
 // void input_target_stat() {

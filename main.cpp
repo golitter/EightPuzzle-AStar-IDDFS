@@ -25,6 +25,7 @@ int main(int, char**){
     // test_Cantor();
     // test_Ev();
     // EightPuzzleInput::start();
-    test_Eight();
+    // test_Eight();
     // test_TEST();
+    EightPuzzleInput::start();
 }
