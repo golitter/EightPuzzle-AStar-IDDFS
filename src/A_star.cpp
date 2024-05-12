@@ -114,6 +114,7 @@ void IDDFS(int zero_pos, std::vector<int> init_stat) {
     while(++max_depth <= 50000) {
         vis = std::map<LL,bool>();
         arr = init_stat;
+        std::cout<<"当前max_depth: "<<max_depth<<std::endl;
         if(dfs(zero_pos, 0, 0)) break;
     } 
     if(max_depth >= 50000) {
